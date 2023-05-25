@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\TaskController;
 use App\Http\Controllers\Api\ApproverController;
+use App\Http\Controllers\Api\DepartmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,10 @@ use App\Http\Controllers\Api\ApproverController;
 Route::controller(AuthController::class)->group(function () {
     Route::post('signup', 'signup');
     Route::post('login', 'login');
+});
+
+Route::controller(DepartmentController::class)->group(function () {
+    Route::get('departments', 'index');
 });
 
 Route::middleware(['auth:api','CheckStaff'])->group(function () {
