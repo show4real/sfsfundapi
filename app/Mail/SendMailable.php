@@ -31,7 +31,7 @@ class SendMailable extends Mailable implements ShouldQueue
      */
     public function build(){
     $subject = $this->task->approve == 1 ? 'Task Approval Notification' : 'Request Approval Notification';
-    $view = $this->task->approve == 1 ? 'mail.approval_notification' : 'mail.request_approval';
+    $view = $this->task->approve == 1 ? 'Mail.approval_notification' : 'Mail.request_approval';
 
     return $this->subject($subject)
         ->view($view)
